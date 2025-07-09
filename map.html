@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Places I've Visited - World Map</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 600px;
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .map-container {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .map-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .map-header h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .map-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .places-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .place-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .place-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .place-card h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .place-card .country {
+            color: #3498db;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        .place-card .description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .place-card .visit-year {
+            color: #e74c3c;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .back-button {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background 0.3s;
+            margin-bottom: 2rem;
+        }
+        
+        .back-button:hover {
+            background: #2980b9;
+        }
+        
+        @media (max-width: 768px) {
+            .map-header h1 {
+                font-size: 2rem;
+            }
+            
+            .places-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About Me</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#books">Books</a></li>
+                <li><a href="map.html">Travel Map</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="map-container">
+            <div class="container">
+                <a href="index.html" class="back-button">← Back to Home</a>
+                
+                <div class="map-header">
+                    <h1>Places I've Visited</h1>
+                    <p>Explore the world through my travels. Each pin represents a unique experience and adventure that has shaped my perspective.</p>
+                </div>
+                
+                <div id="map"></div>
+                
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-number">15</div>
+                        <div class="stat-label">Countries Visited</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">28</div>
+                        <div class="stat-label">Cities Explored</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">6</div>
+                        <div class="stat-label">Continents</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Adventures</div>
+                    </div>
+                </div>
+                
+                <div class="places-grid">
+                    <div class="place-card">
+                        <h3>Tokyo</h3>
+                        <div class="country">Japan</div>
+                        <div class="description">An incredible blend of traditional culture and cutting-edge technology. The food scene, temples, and bustling city life left a lasting impression.</div>
+                        <div class="visit-year">Visited in 2023</div>
+                    </div>
+                    
+                    <div class="place-card">
+                        <h3>Paris</h3>
+                        <div class="country">France</div>
+                        <div class="description">The city of lights lived up to its reputation. From the Eiffel Tower to charming cafés, every corner told a story of art and romance.</div>
+                        <div class="visit-year">Visited in 2022</div>
+                    </div>
+                    
+                    <div class="place-card">
+                        <h3>New York City</h3>
+                        <div class="country">USA</div>
+                        <div class="description">The energy of the city that never sleeps is unmatched. Broadway shows, Central Park, and world-class museums made it unforgettable.</div>
+                        <div class="visit-year">Visited in 2023</div>
+                    </div>
+                    
+                    <div class="place-card">
+                        <h3>Sydney</h3>
+                        <div class="country">Australia</div>
+                        <div class="description">Beautiful harbor views, iconic Opera House, and friendly locals. The perfect mix of urban sophistication and natural beauty.</div>
+                        <div class="visit-year">Visited in 2021</div>
+                    </div>
+                    
+                    <div class="place-card">
+                        <h3>Istanbul</h3>
+                        <div class="country">Turkey</div>
+                        <div class="description">A fascinating crossroads of Europe and Asia. Rich history, stunning architecture, and amazing Turkish cuisine made it a memorable experience.</div>
+                        <div class="visit-year">Visited in 2022</div>
+                    </div>
+                    
+                    <div class="place-card">
+                        <h3>Cape Town</h3>
+                        <div class="country">South Africa</div>
+                        <div class="description">Breathtaking landscapes with Table Mountain as the backdrop. The wine regions and vibrant culture created lasting memories.</div>
+                        <div class="visit-year">Visited in 2021</div>
+                    </div>
+                    
+                    <div class="place-card">
+                        <h3>London</h3>
+                        <div class="country">United Kingdom</div>
+                        <div class="description">Rich history meets modern innovation. From the Tower Bridge to British pubs, every experience was steeped in tradition.</div>
+                        <div class="visit-year">Visited in 2023</div>
+                    </div>
+                    
+                    <div class="place-card">
+                        <h3>Barcelona</h3>
+                        <div class="country">Spain</div>
+                        <div class="description">Gaudí's architectural masterpieces and vibrant street life. The perfect blend of art, culture, and Mediterranean lifestyle.</div>
+                        <div class="visit-year">Visited in 2022</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 [Your Name]. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Initialize the map
+        const map = L.map('map').setView([20, 0], 2);
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Places I've visited (random locations)
+        const visitedPlaces = [
+            { name: "Tokyo", country: "Japan", lat: 35.6762, lng: 139.6503, year: "2023" },
+            { name: "Paris", country: "France", lat: 48.8566, lng: 2.3522, year: "2022" },
+            { name: "New York City", country: "USA", lat: 40.7128, lng: -74.0060, year: "2023" },
+            { name: "Sydney", country: "Australia", lat: -33.8688, lng: 151.2093, year: "2021" },
+            { name: "Istanbul", country: "Turkey", lat: 41.0082, lng: 28.9784, year: "2022" },
+            { name: "Cape Town", country: "South Africa", lat: -33.9249, lng: 18.4241, year: "2021" },
+            { name: "London", country: "United Kingdom", lat: 51.5074, lng: -0.1278, year: "2023" },
+            { name: "Barcelona", country: "Spain", lat: 41.3851, lng: 2.1734, year: "2022" },
+            { name: "Rome", country: "Italy", lat: 41.9028, lng: 12.4964, year: "2021" },
+            { name: "Bangkok", country: "Thailand", lat: 13.7563, lng: 100.5018, year: "2023" },
+            { name: "Dubai", country: "UAE", lat: 25.2048, lng: 55.2708, year: "2022" },
+            { name: "Singapore", country: "Singapore", lat: 1.3521, lng: 103.8198, year: "2023" },
+            { name: "Mumbai", country: "India", lat: 19.0760, lng: 72.8777, year: "2021" },
+            { name: "Berlin", country: "Germany", lat: 52.5200, lng: 13.4050, year: "2022" },
+            { name: "Toronto", country: "Canada", lat: 43.6532, lng: -79.3832, year: "2023" },
+            { name: "São Paulo", country: "Brazil", lat: -23.5505, lng: -46.6333, year: "2021" },
+            { name: "Cairo", country: "Egypt", lat: 30.0444, lng: 31.2357, year: "2022" },
+            { name: "Seoul", country: "South Korea", lat: 37.5665, lng: 126.9780, year: "2023" },
+            { name: "Mexico City", country: "Mexico", lat: 19.4326, lng: -99.1332, year: "2021" },
+            { name: "Amsterdam", country: "Netherlands", lat: 52.3676, lng: 4.9041, year: "2022" },
+            { name: "Prague", country: "Czech Republic", lat: 50.0755, lng: 14.4378, year: "2023" },
+            { name: "Vienna", country: "Austria", lat: 48.2082, lng: 16.3738, year: "2022" },
+            { name: "Lisbon", country: "Portugal", lat: 38.7223, lng: -9.1393, year: "2021" },
+            { name: "Stockholm", country: "Sweden", lat: 59.3293, lng: 18.0686, year: "2023" },
+            { name: "Budapest", country: "Hungary", lat: 47.4979, lng: 19.0402, year: "2022" },
+            { name: "Athens", country: "Greece", lat: 37.9838, lng: 23.7275, year: "2021" },
+            { name: "Marrakech", country: "Morocco", lat: 31.6295, lng: -7.9811, year: "2022" },
+            { name: "Reykjavik", country: "Iceland", lat: 64.1466, lng: -21.9426, year: "2023" }
+        ];
+
+        // Add markers for each place
+        visitedPlaces.forEach(place => {
+            const marker = L.marker([place.lat, place.lng]).addTo(map);
+            marker.bindPopup(`
+                <div style="text-align: center; padding: 5px;">
+                    <h3 style="margin: 0 0 5px 0; color: #2c3e50;">${place.name}</h3>
+                    <p style="margin: 0 0 5px 0; color: #3498db; font-weight: 500;">${place.country}</p>
+                    <p style="margin: 0; color: #666; font-size: 0.9rem;">Visited in ${place.year}</p>
+                </div>
+            `);
+        });
+
+        // Add some interactivity
+        map.on('click', function(e) {
+            console.log('Clicked at: ' + e.latlng);
+        });
+    </script>
+</body>
+</html>
