@@ -13,6 +13,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About Me</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#books">Book Recommendations</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -118,6 +119,172 @@
             </div>
         </section>
 
+        <section id="books" class="books-section">
+            <div class="container">
+                <h2>Book Recommendations</h2>
+                <p class="books-intro">Here are some books that have influenced my thinking and development journey across various domains.</p>
+                
+                <div class="books-categories">
+                    <div class="category-tabs">
+                        <button class="tab-button active" onclick="showCategory('philosophy')">Philosophy</button>
+                        <button class="tab-button" onclick="showCategory('technology')">Technology</button>
+                        <button class="tab-button" onclick="showCategory('psychology')">Psychology</button>
+                        <button class="tab-button" onclick="showCategory('business')">Business</button>
+                    </div>
+                    
+                    <div class="category-content">
+                        <div id="philosophy" class="category active">
+                            <div class="books-grid">
+                                <div class="book-card">
+                                    <div class="book-cover">
+                                        <img src="https://via.placeholder.com/150x200?text=Meditations" alt="Meditations">
+                                    </div>
+                                    <div class="book-info">
+                                        <h3>Meditations</h3>
+                                        <p class="author">Marcus Aurelius</p>
+                                        <p class="description">Timeless reflections on life, duty, and virtue from one of history's greatest philosophers and leaders.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="book-card">
+                                    <div class="book-cover">
+                                        <img src="https://via.placeholder.com/150x200?text=The+Republic" alt="The Republic">
+                                    </div>
+                                    <div class="book-info">
+                                        <h3>The Republic</h3>
+                                        <p class="author">Plato</p>
+                                        <p class="description">A foundational work exploring justice, the ideal state, and the nature of reality through philosophical dialogue.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="book-card">
+                                    <div class="book-cover">
+                                        <img src="https://via.placeholder.com/150x200?text=Being+and+Time" alt="Being and Time">
+                                    </div>
+                                    <div class="book-info">
+                                        <h3>Being and Time</h3>
+                                        <p class="author">Martin Heidegger</p>
+                                        <p class="description">A profound examination of existence, consciousness, and what it means to be human.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="technology" class="category">
+                            <div class="books-grid">
+                                <div class="book-card">
+                                    <div class="book-cover">
+                                        <img src="https://via.placeholder.com/150x200?text=Clean+Code" alt="Clean Code">
+                                    </div>
+                                    <div class="book-info">
+                                        <h3>Clean Code</h3>
+                                        <p class="author">Robert C. Martin</p>
+                                        <p class="description">Essential principles and practices for writing maintainable, readable, and professional code.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="book-card">
+                                    <div class="book-cover">
+                                        <img src="https://via.placeholder.com/150x200?text=The+Pragmatic+Programmer" alt="The Pragmatic Programmer">
+                                    </div>
+                                    <div class="book-info">
+                                        <h3>The Pragmatic Programmer</h3>
+                                        <p class="author">David Thomas & Andrew Hunt</p>
+                                        <p class="description">Practical advice and timeless techniques for becoming a more effective and efficient programmer.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="book-card">
+                                    <div class="book-cover">
+                                        <img src="https://via.placeholder.com/150x200?text=Design+Patterns" alt="Design Patterns">
+                                    </div>
+                                    <div class="book-info">
+                                        <h3>Design Patterns</h3>
+                                        <p class="author">Gang of Four</p>
+                                        <p class="description">Fundamental software design patterns that solve common programming problems elegantly.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="psychology" class="category">
+                            <div class="books-grid">
+                                <div class="book-card">
+                                    <div class="book-cover">
+                                        <img src="https://via.placeholder.com/150x200?text=Thinking+Fast+and+Slow" alt="Thinking Fast and Slow">
+                                    </div>
+                                    <div class="book-info">
+                                        <h3>Thinking, Fast and Slow</h3>
+                                        <p class="author">Daniel Kahneman</p>
+                                        <p class="description">Insights into how our minds make decisions, revealing the biases that influence our thinking.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="book-card">
+                                    <div class="book-cover">
+                                        <img src="https://via.placeholder.com/150x200?text=Flow" alt="Flow">
+                                    </div>
+                                    <div class="book-info">
+                                        <h3>Flow</h3>
+                                        <p class="author">Mihaly Csikszentmihalyi</p>
+                                        <p class="description">The psychology of optimal experience and how to achieve peak performance and satisfaction.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="book-card">
+                                    <div class="book-cover">
+                                        <img src="https://via.placeholder.com/150x200?text=Mindset" alt="Mindset">
+                                    </div>
+                                    <div class="book-info">
+                                        <h3>Mindset</h3>
+                                        <p class="author">Carol S. Dweck</p>
+                                        <p class="description">How a simple idea about the brain can transform your approach to learning and achievement.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="business" class="category">
+                            <div class="books-grid">
+                                <div class="book-card">
+                                    <div class="book-cover">
+                                        <img src="https://via.placeholder.com/150x200?text=The+Lean+Startup" alt="The Lean Startup">
+                                    </div>
+                                    <div class="book-info">
+                                        <h3>The Lean Startup</h3>
+                                        <p class="author">Eric Ries</p>
+                                        <p class="description">Revolutionary approach to building successful businesses through validated learning and iterative development.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="book-card">
+                                    <div class="book-cover">
+                                        <img src="https://via.placeholder.com/150x200?text=Good+to+Great" alt="Good to Great">
+                                    </div>
+                                    <div class="book-info">
+                                        <h3>Good to Great</h3>
+                                        <p class="author">Jim Collins</p>
+                                        <p class="description">What separates great companies from good ones, based on extensive research and analysis.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="book-card">
+                                    <div class="book-cover">
+                                        <img src="https://via.placeholder.com/150x200?text=Zero+to+One" alt="Zero to One">
+                                    </div>
+                                    <div class="book-info">
+                                        <h3>Zero to One</h3>
+                                        <p class="author">Peter Thiel</p>
+                                        <p class="description">Notes on startups and building the future through innovation and monopolistic thinking.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="contact" class="contact-section">
             <div class="container">
                 <h2>Get In Touch</h2>
@@ -136,5 +303,22 @@
             <p>&copy; 2024 [Your Name]. All rights reserved.</p>
         </div>
     </footer>
+<script>
+function showCategory(category) {
+    // Hide all categories
+    const categories = document.querySelectorAll('.category');
+    categories.forEach(cat => cat.classList.remove('active'));
+    
+    // Remove active class from all tabs
+    const tabs = document.querySelectorAll('.tab-button');
+    tabs.forEach(tab => tab.classList.remove('active'));
+    
+    // Show selected category
+    document.getElementById(category).classList.add('active');
+    
+    // Add active class to clicked tab
+    event.target.classList.add('active');
+}
+</script>
 </body>
 </html>
