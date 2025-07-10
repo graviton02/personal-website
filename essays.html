@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essays - My Personal Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .essays-container {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .essays-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .essays-header h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .essays-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .essays-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .essay-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .essay-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .essay-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .essay-date {
+            color: #e74c3c;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .essay-category {
+            background: #3498db;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .essay-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            line-height: 1.3;
+        }
+        
+        .essay-excerpt {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .essay-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .essay-tag {
+            background: #ecf0f1;
+            color: #2c3e50;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+        }
+        
+        .essay-link {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .essay-link:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+        
+        .back-button {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background 0.3s;
+            margin-bottom: 2rem;
+        }
+        
+        .back-button:hover {
+            background: #2980b9;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .essays-header h1 {
+                font-size: 2rem;
+            }
+            
+            .essays-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .essay-meta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About Me</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#books">Books</a></li>
+                <li><a href="essays.html">Essays</a></li>
+                <li><a href="map.html">Travel Map</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="essays-container">
+            <div class="container">
+                <a href="index.html" class="back-button">← Back to Home</a>
+                
+                <div class="essays-header">
+                    <h1>My Essays</h1>
+                    <p>A collection of my thoughts and reflections on technology, philosophy, and life. Each essay represents a journey of exploration and discovery.</p>
+                </div>
+                
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">Essays Published</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Categories</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2.5k</div>
+                        <div class="stat-label">Average Words</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">15k+</div>
+                        <div class="stat-label">Total Reads</div>
+                    </div>
+                </div>
+                
+                <div class="essays-grid">
+                    <div class="essay-card">
+                        <div class="essay-meta">
+                            <span class="essay-date">March 15, 2024</span>
+                            <span class="essay-category">Technology</span>
+                        </div>
+                        <h3>The Future of Artificial Intelligence in Software Development</h3>
+                        <p class="essay-excerpt">Exploring how AI tools are reshaping the way we write code, from automated testing to intelligent code completion. This essay examines both the opportunities and challenges that lie ahead for developers in an AI-augmented world.</p>
+                        <div class="essay-tags">
+                            <span class="essay-tag">AI</span>
+                            <span class="essay-tag">Programming</span>
+                            <span class="essay-tag">Future Tech</span>
+                        </div>
+                        <a href="#" class="essay-link">Read Full Essay →</a>
+                    </div>
+                    
+                    <div class="essay-card">
+                        <div class="essay-meta">
+                            <span class="essay-date">February 28, 2024</span>
+                            <span class="essay-category">Philosophy</span>
+                        </div>
+                        <h3>Digital Minimalism: Finding Balance in a Connected World</h3>
+                        <p class="essay-excerpt">In an age of constant notifications and digital overwhelm, how do we maintain our humanity and focus? This essay explores practical strategies for creating meaningful boundaries with technology.</p>
+                        <div class="essay-tags">
+                            <span class="essay-tag">Minimalism</span>
+                            <span class="essay-tag">Productivity</span>
+                            <span class="essay-tag">Mindfulness</span>
+                        </div>
+                        <a href="#" class="essay-link">Read Full Essay →</a>
+                    </div>
+                    
+                    <div class="essay-card">
+                        <div class="essay-meta">
+                            <span class="essay-date">January 20, 2024</span>
+                            <span class="essay-category">Career</span>
+                        </div>
+                        <h3>The Art of Learning: Continuous Growth in Tech</h3>
+                        <p class="essay-excerpt">Technology evolves rapidly, and staying relevant requires a commitment to lifelong learning. This essay shares strategies for building effective learning habits and choosing what to focus on in an ever-changing landscape.</p>
+                        <div class="essay-tags">
+                            <span class="essay-tag">Learning</span>
+                            <span class="essay-tag">Career Growth</span>
+                            <span class="essay-tag">Skills</span>
+                        </div>
+                        <a href="#" class="essay-link">Read Full Essay →</a>
+                    </div>
+                    
+                    <div class="essay-card">
+                        <div class="essay-meta">
+                            <span class="essay-date">December 10, 2023</span>
+                            <span class="essay-category">Design</span>
+                        </div>
+                        <h3>User Experience: Beyond Pretty Interfaces</h3>
+                        <p class="essay-excerpt">Great UX design goes far beyond aesthetics. This essay delves into the psychology of user interaction, accessibility considerations, and how to create truly inclusive digital experiences.</p>
+                        <div class="essay-tags">
+                            <span class="essay-tag">UX Design</span>
+                            <span class="essay-tag">Accessibility</span>
+                            <span class="essay-tag">Psychology</span>
+                        </div>
+                        <a href="#" class="essay-link">Read Full Essay →</a>
+                    </div>
+                    
+                    <div class="essay-card">
+                        <div class="essay-meta">
+                            <span class="essay-date">November 5, 2023</span>
+                            <span class="essay-category">Technology</span>
+                        </div>
+                        <h3>Open Source: The Philosophy of Collaborative Creation</h3>
+                        <p class="essay-excerpt">Open source software has revolutionized how we build technology. This essay explores the philosophical underpinnings of open source culture and its impact on innovation and community building.</p>
+                        <div class="essay-tags">
+                            <span class="essay-tag">Open Source</span>
+                            <span class="essay-tag">Community</span>
+                            <span class="essay-tag">Collaboration</span>
+                        </div>
+                        <a href="#" class="essay-link">Read Full Essay →</a>
+                    </div>
+                    
+                    <div class="essay-card">
+                        <div class="essay-meta">
+                            <span class="essay-date">October 18, 2023</span>
+                            <span class="essay-category">Personal</span>
+                        </div>
+                        <h3>Lessons from Remote Work: Building Connection in Digital Spaces</h3>
+                        <p class="essay-excerpt">The shift to remote work has taught us valuable lessons about communication, collaboration, and maintaining human connection across digital divides. Reflections on what we've learned and where we're heading.</p>
+                        <div class="essay-tags">
+                            <span class="essay-tag">Remote Work</span>
+                            <span class="essay-tag">Communication</span>
+                            <span class="essay-tag">Culture</span>
+                        </div>
+                        <a href="#" class="essay-link">Read Full Essay →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 [Your Name]. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
